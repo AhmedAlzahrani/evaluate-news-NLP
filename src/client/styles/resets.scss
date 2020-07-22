@@ -41,10 +41,13 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+%content-style {
 	content: '';
 	content: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	@extend %content-style;
 }
 table {
 	border-collapse: collapse;
