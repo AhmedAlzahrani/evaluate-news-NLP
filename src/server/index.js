@@ -12,9 +12,9 @@ var textapi = new AYLIENTextAPI({
 
 const app = express()
 
-app.use(cors())
+app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
  
 app.use(bodyParser.json())
 
@@ -30,8 +30,8 @@ app.get('/', function (req, res) {
 
 
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log(`Example app listening on port ${PORT}!`);
+app.listen(process.env.PORT || 8081, function () {
+    console.log(`Example app listening on port ${process.env.PORT || 8081}!`);
 })
 
 app.post('/analysis', function (req, res) {
