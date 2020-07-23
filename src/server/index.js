@@ -1,16 +1,22 @@
 let path = require('path')
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
 const dotenv = require('dotenv');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 dotenv.config();
-const aylien = require("aylien_textapi");
-
-const textapi = new aylien({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
-  });
+var AYLIENTextAPI = require('aylien_textapi');
+var textapi = new AYLIENTextAPI({
+  application_id: '50606da7',
+  application_key: '912c120ae2c55c7f19dcc89ea24eb3ea'
+});
 
 const app = express()
+
+app.use(cors())
+
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+app.use(bodyParser.json())
 
 app.use(express.static('dist'))
 
@@ -28,6 +34,16 @@ app.listen(PORT, function () {
     console.log(`Example app listening on port ${PORT}!`);
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+app.post('/analysis', function (req, res) {
+    console.log(req.body.url);
+    textapi.sentiment({
+        url: req.body.url
+      }, function(error, response) {
+        if (error === null) {
+            console.log(response);
+            res.json(response);
+        }else{
+            res.json({error: 'Invalid URL'});
+        }
+      });
 })

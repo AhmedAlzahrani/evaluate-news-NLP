@@ -1,21 +1,30 @@
-//Global variables
-const API_KEY = `&appid=9a134735d7359ef641e698a70b098619`;
-const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=`;
+import { displayResult } from "./displayResult";
 
+const server = "http://localhost:8081/analysis";
 
 export function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+    let formText = document.getElementById('link').value
+    console.log(formText);
+    console.log("::: Form Submitted :::");
+    fetchAnalysis(formText);
+}
 
-    console.log("::: Form Submitted :::")
-    fetch(`${API_URL}${formText}${API_KEY}`)
-    .then(res => res.json())
-    .then(res => {
-        console.log(res);
-        console.log(res.main.temp);
-        document.getElementById('results').textContent = `Temp: ${res.main.temp}`;
-    })
+export function fetchAnalysis(link){
+
+    const results = fetch(server, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({url:link})
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res.polarity);
+            displayResult(res);
+        })
+        return results;
 }
