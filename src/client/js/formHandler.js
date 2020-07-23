@@ -1,6 +1,6 @@
 import { displayResult } from "./displayResult";
 
-const server = "http://localhost:8081/analysis";
+const server = "http://localhost:3000/analysis";
 
 export function handleSubmit(event) {
     event.preventDefault()

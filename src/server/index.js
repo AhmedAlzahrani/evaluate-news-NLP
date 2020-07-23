@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 
 
 app.listen(process.env.PORT || 8081, function () {
-    console.log(`Example app listening on port ${process.env.PORT || 8081}!`);
+    console.log(`Example app listening on port ${process.env.PORT || 3000}!`);
 })
 
 app.post('/analysis', function (req, res) {
