@@ -31,5 +31,3 @@ app.listen(PORT, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
-
-console.log('Hello');
