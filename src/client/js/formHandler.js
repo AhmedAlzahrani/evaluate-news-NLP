@@ -13,6 +13,7 @@ export function fetchAnalysis(link){
 
     const results = fetch(server, {
             method: 'POST',
+            mode:'cors',
             headers: {
             'Content-Type': 'application/json'
             },
