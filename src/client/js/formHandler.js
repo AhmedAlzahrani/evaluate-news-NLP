@@ -7,8 +7,6 @@ export function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('link').value
-    console.log(formText);
-    console.log("::: Form Submitted :::");
     fetchAnalysis(formText);
 }
 
@@ -16,6 +14,7 @@ export function fetchAnalysis(link){
 
     const results = fetch(server, {
             method: 'POST',
+            mode: 'cors',
             headers: {
             'Content-Type': 'application/json'
             },
@@ -23,7 +22,6 @@ export function fetchAnalysis(link){
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res.polarity);
             displayResult(res);
         })
         return results;
