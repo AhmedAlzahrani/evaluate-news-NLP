@@ -23,7 +23,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html')
+    res.sendFile('src/client/views/index.html')
 })
 
 // designates what port the app will listen to for incoming requests
