@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a5dc830e-5c6d-4b9d-be55-527ce2e48a7f/resourceGroups/JSResources/providers/Microsoft.Web/sites/nlp-news",
+    "appService.deploySubpath": "."
+}

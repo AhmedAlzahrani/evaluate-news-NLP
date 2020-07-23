@@ -1,10 +1,7 @@
 ## To run this project
 
-Fork this repo, then clone the branch of your choice from your forked repo down to your computer:
-
-```
-git clone -- git@github.com:[your-user-name]/webpack-express.git --
-```
+    - clone this repo
+    - install all required dependencies
 
 `cd` into your new folder and run:
 - ```npm install```
