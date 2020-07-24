@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 dotenv.config();
 var AYLIENTextAPI = require('aylien_textapi');
 var textapi = new AYLIENTextAPI({
-  application_id: '50606da7',
-  application_key: '912c120ae2c55c7f19dcc89ea24eb3ea'
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
 });
 
 const app = express()
@@ -43,7 +43,7 @@ app.post('/analysis', function (req, res) {
             console.log(response);
             res.json(response);
         }else{
-            res.json({error: 'Invalid URL'});
+            res.json({message: `${error}`});
         }
       });
 })
